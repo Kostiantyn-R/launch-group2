@@ -1,0 +1,12 @@
+FROM alpine:latest
+
+RUN apk update && apk upgrade 
+RUN apk add --no-cache bash git openssh
+
+ENV REPO_URL=$REPO_URL
+
+WORKDIR /data
+VOLUME /data
+
+
+CMD git clone ${REPO_URL}

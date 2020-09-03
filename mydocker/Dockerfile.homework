@@ -1,0 +1,9 @@
+FROM alpine:latest
+
+RUN apk update && apk upgrade 
+RUN apk add --no-cache bash git openssh
+
+WORKDIR /data
+VOLUME /data
+
+ENTRYPOINT ["git", "clone"]

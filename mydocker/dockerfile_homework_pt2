@@ -1,0 +1,10 @@
+FROM nginx:latest
+
+COPY nginx.conf /etc/nginx/nginx.conf
+
+ENV NGINX_VERSION=1.2
+COPY index_template.html index_template.html
+COPY entrypoint.sh entrypoint.sh
+RUN chmod u+x entrypoint.sh
+
+CMD ["./entrypoint.sh"]
